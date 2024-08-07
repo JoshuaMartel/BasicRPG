@@ -140,18 +140,24 @@
     <ClCompile Include="GameMap.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="LevelMap.cpp" />
+    <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="NewGameButton.cpp" />
     <ClCompile Include="SpriteSheet.cpp" />
     <ClCompile Include="Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Button.h" />
     <ClInclude Include="ButtonSprite.h" />
+    <ClInclude Include="ButtonType.h" />
     <ClInclude Include="ExitButton.h" />
+    <ClInclude Include="GameEvents.h" />
     <ClInclude Include="GameMap.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="LevelMap.h" />
+    <ClInclude Include="MainMenu.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="NewGameButton.h" />
     <ClInclude Include="SpriteSheet.h" />
     <ClInclude Include="SpriteSheetInfo.h" />
     <ClInclude Include="Square.h" />

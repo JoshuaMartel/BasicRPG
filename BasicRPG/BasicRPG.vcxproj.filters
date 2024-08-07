@@ -31,6 +31,12 @@
     <Filter Include="Header Files\utils">
       <UniqueIdentifier>{0f04f532-f5ae-4fe9-8c2c-96788ff6750d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\menus">
+      <UniqueIdentifier>{00fac358-d202-4079-a05a-b55d7246bbde}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\menus">
+      <UniqueIdentifier>{0a57efae-7be7-48a1-81b7-944739f9af2e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BasicRPG.cpp">
@@ -42,17 +48,8 @@
     <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Menu.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Constants.h">
-      <Filter>Header Files\Enums</Filter>
-    </ClCompile>
     <ClCompile Include="Button.cpp">
       <Filter>Source Files\buttons</Filter>
-    </ClCompile>
-    <ClCompile Include="ExitButton.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GameMap.cpp">
       <Filter>Source Files\maps</Filter>
@@ -62,6 +59,21 @@
     </ClCompile>
     <ClCompile Include="SpriteSheet.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NewGameButton.cpp">
+      <Filter>Source Files\buttons</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Source Files\menus</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenu.cpp">
+      <Filter>Source Files\menus</Filter>
+    </ClCompile>
+    <ClCompile Include="ExitButton.cpp">
+      <Filter>Source Files\buttons</Filter>
+    </ClCompile>
+    <ClCompile Include="Constants.h">
+      <Filter>Header Files\utils</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -74,14 +86,8 @@
     <ClInclude Include="ButtonSprite.h">
       <Filter>Header Files\Enums</Filter>
     </ClInclude>
-    <ClInclude Include="Menu.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Button.h">
       <Filter>Header Files\buttons</Filter>
-    </ClInclude>
-    <ClInclude Include="ExitButton.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GameMap.h">
       <Filter>Header Files\Map</Filter>
@@ -97,6 +103,24 @@
     </ClInclude>
     <ClInclude Include="SpriteSheetInfo.h">
       <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="NewGameButton.h">
+      <Filter>Header Files\buttons</Filter>
+    </ClInclude>
+    <ClInclude Include="ButtonType.h">
+      <Filter>Header Files\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Header Files\menus</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenu.h">
+      <Filter>Header Files\menus</Filter>
+    </ClInclude>
+    <ClInclude Include="ExitButton.h">
+      <Filter>Header Files\buttons</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEvents.h">
+      <Filter>Header Files\Enums</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

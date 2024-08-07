@@ -24,7 +24,7 @@ public:
 
 	bool handleEvent(SDL_Event* e);
 
-private:
+protected:
 	int m_window_width;
 	int m_window_height;
 	int m_num_sprites_width;

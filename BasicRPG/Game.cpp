@@ -72,10 +72,13 @@ bool Game::init()
 				}
 				else
 				{
-					success = m_main_menu.init(m_renderer, m_window_width, m_window_height, "resources/Wall.png", WALL_SHEET_ROWS, WALL_SHEET_COLS);
-					if (!success)
+					try {
+						p_main_menu = std::make_unique<MainMenu>(m_renderer, m_window_width, m_window_height, "resources/Wall.png", WALL_SHEET_ROWS, WALL_SHEET_COLS);
+					}
+					catch (std::string e)
 					{
 						printf("Game.init ---> Menu class could not initialize! Error\n");
+						success = false;
 					}
 				}
 			}
@@ -87,7 +90,7 @@ bool Game::init()
 
 void Game::loop()
 {
-	bool quit = false, playing = true;
+	bool quit = false, playing = false;
 	
 
 	SDL_Event e;
@@ -126,7 +129,16 @@ void Game::loop()
 
 			if (!playing)
 			{
-				m_main_menu.render(m_renderer);
+				p_main_menu->render(m_renderer);
+
+				switch (p_main_menu->handelEvent(&e)) {
+				case NEW_GAME:
+					playing = true;
+					break;
+				case EXIT:
+					quit = true;
+					break;
+				}
 			}
 			else
 			{

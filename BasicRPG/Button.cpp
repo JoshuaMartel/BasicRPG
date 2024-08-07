@@ -11,6 +11,8 @@ Button::Button()
 	m_text_colour = { 0,0,0 };
 
 	p_font = NULL;
+
+	m_type = DEFAULT_BUTTON;
 }
 
 bool Button::init(
@@ -113,4 +115,9 @@ bool Button::handleEvent(SDL_Event* e)
 void Button::render(SDL_Renderer* renderer)
 {
 	m_texture.render(renderer, m_position.x, m_position.y);
+}
+
+ButtonType Button::type()
+{
+	return m_type;
 }

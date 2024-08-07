@@ -3,6 +3,7 @@
 #include <SDL.h>
 
 #include "Texture.h"
+#include "ButtonType.h"
 
 class Button
 {
@@ -22,7 +23,10 @@ public:
 	// Shows button sprite
 	void render(SDL_Renderer* renderer);
 
-private:
+	// Return type of button
+	ButtonType type();
+
+protected:
 	int m_width, m_height;
 
 	// Top left position
@@ -34,5 +38,7 @@ private:
 	TTF_Font* p_font;
 
 	SDL_Color m_text_colour;
+
+	ButtonType m_type;
 };
 

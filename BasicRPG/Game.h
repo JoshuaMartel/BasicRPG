@@ -3,8 +3,10 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include <stdio.h>
+#include <memory>
+#include <exception>
 
-#include "Menu.h"
+#include "MainMenu.h"
 #include "Constants.h"
 #include "GameMap.h"
 
@@ -25,7 +27,7 @@ private:
 	SDL_Window* m_window;
 	SDL_Renderer* m_renderer;
 
-	Menu m_main_menu;
+	std::unique_ptr<MainMenu> p_main_menu;
 
 	int m_window_width;
 	int m_window_height;

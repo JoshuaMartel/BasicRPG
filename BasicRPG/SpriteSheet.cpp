@@ -52,6 +52,7 @@ void SpriteSheet::loadFromFile(SDL_Renderer* renderer, std::string image_path)
 			int vertical_blocks = m_info.rows / m_info.block_row_length;
 			int cols = m_info.block_col_length;
 			int rows = m_info.block_row_length;
+
 			std::cout << std::endl;
 			std::cout << "sheet width: " << m_width << std::endl;
 			std::cout << "sheet height : " << m_height << std::endl;
