@@ -101,8 +101,15 @@ void Game::loop()
 	// Remove after testing SpriteSheet 
 	// ****
 	int rows = FLOOR_SHEET_ROWS, cols = FLOOR_SHEET_COLS;
-	SpriteSheet sheet(rows, cols, 7, 7);
+	SpriteSheetInfo info = {rows, cols, 0, 0.0, 0.0, 0.0, 0.0, 3, 7};
+	//SpriteSheet sheet(rows, cols, 7, 7);
+	SpriteSheet sheet(&info);
 	sheet.loadFromFile(m_renderer, "resources/Floor.png");
+
+	rows = WALL_SHEET_ROWS; cols = WALL_SHEET_COLS;
+	SpriteSheetInfo info2 = { rows, cols, 0, 0.0, 0.0, 0.0, 0.0, 3, 7 };
+	SpriteSheet walls(&info2);
+	walls.loadFromFile(m_renderer, "resources/Wall.png");
 	// ****
 	while (!quit)
 	{
@@ -123,7 +130,8 @@ void Game::loop()
 			}
 			else
 			{
-				sheet.render(m_renderer);
+				//sheet.render(m_renderer);
+				walls.render(m_renderer);
 			}
 
 			SDL_RenderPresent(m_renderer);

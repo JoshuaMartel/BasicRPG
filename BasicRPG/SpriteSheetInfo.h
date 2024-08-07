@@ -14,7 +14,7 @@ struct SpriteSheetInfo
 
 	// A block is a group of sets of tiles that are common to each other in some way
 	// i.e. sets of brick tiles of different colours
-	float tile_block_w = 0.0, tile_block_h = 0.0;
+	int block_row_length = 0, block_col_length = 0;
 
 	// Skip empty sections of the sprite sheet. Are to be used as a matrix, so for example,
 	// skips rows 4-8 at coloumns 6-9
