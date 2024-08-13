@@ -137,6 +137,7 @@
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Constants.h" />
     <ClCompile Include="ExitButton.cpp" />
+    <ClCompile Include="FileHandler.cpp" />
     <ClCompile Include="GameMap.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="LevelMap.cpp" />
@@ -151,15 +152,17 @@
     <ClInclude Include="ButtonSprite.h" />
     <ClInclude Include="ButtonType.h" />
     <ClInclude Include="ExitButton.h" />
+    <ClInclude Include="FileHandler.h" />
     <ClInclude Include="GameEvents.h" />
     <ClInclude Include="GameMap.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="LevelMap.h" />
     <ClInclude Include="MainMenu.h" />
+    <ClInclude Include="TerrainData.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="NewGameButton.h" />
     <ClInclude Include="SpriteSheet.h" />
-    <ClInclude Include="SpriteSheetInfo.h" />
+    <ClInclude Include="SpriteSheetData.h" />
     <ClInclude Include="Square.h" />
     <ClInclude Include="Texture.h" />
   </ItemGroup>

@@ -4,25 +4,24 @@
 #include <string>
 #include <exception>
 #include <vector>
+#include <memory>
 
 #include "Texture.h"
+#include "SpriteSheet.h"
+#include "SpriteSheetData.h"
 
 class GameMap
 {
 public:
+	GameMap(SDL_Renderer* renderer, int width, int height, SpriteSheetData* info);
 
-	GameMap(SDL_Renderer* renderer, int width, int height, std::string image_path, int sprite_rows, int sprite_cols);
+	GameMap(SDL_Renderer* renderer, int width, int height, std::vector<std::unique_ptr<SpriteSheetData>>* info);
 
 	void render(SDL_Renderer* renderer);
 
 protected:
-
 	int m_width, m_height;
 
-	int m_sprite_rows, m_sprite_cols;
-
-	float m_sprite_w, m_sprite_h;
-
-	Texture m_map_texture;
+	std::vector<std::unique_ptr<SpriteSheet>> p_sheet;
 };
 

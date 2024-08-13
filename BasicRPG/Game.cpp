@@ -91,11 +91,18 @@ bool Game::init()
 void Game::loop()
 {
 	bool quit = false, playing = false;
-	
+	// Remove after testing GameMap
+	// ****
+	int rows = FLOOR_SHEET_ROWS, cols = FLOOR_SHEET_COLS;
+	SpriteSheetData info = { rows, cols, 0, 0.0, 0.0, 0.0, 0.0, 3, 7 };
+	//SpriteSheet sheet(rows, cols, 7, 7);
+	SpriteSheet sheet(&info);
+	sheet.loadFromFile(m_renderer, "resources/Floor.png");
+	// ****
 
 	SDL_Event e;
 	try {
-		GameMap game_map(m_renderer, m_window_width, m_window_height, "resources/Floor.png", 21, 39);
+		GameMap game_map(m_renderer, m_window_width, m_window_height, &info);
 	}
 	catch (std::string e)
 	{
@@ -103,20 +110,16 @@ void Game::loop()
 	}
 	// Remove after testing SpriteSheet 
 	// ****
-	int rows = FLOOR_SHEET_ROWS, cols = FLOOR_SHEET_COLS;
-	SpriteSheetInfo info = {rows, cols, 0, 0.0, 0.0, 0.0, 0.0, 3, 7};
-	//SpriteSheet sheet(rows, cols, 7, 7);
-	SpriteSheet sheet(&info);
-	sheet.loadFromFile(m_renderer, "resources/Floor.png");
+	
 
 	rows = WALL_SHEET_ROWS; cols = WALL_SHEET_COLS;
-	SpriteSheetInfo info2 = { rows, cols, 0, 0.0, 0.0, 0.0, 0.0, 3, 7 };
+	SpriteSheetData info2 = { rows, cols, 0, 0.0, 0.0, 0.0, 0.0, 3, 7 };
 	SpriteSheet walls(&info2);
 	walls.loadFromFile(m_renderer, "resources/Wall.png");
 	// ****
 	while (!quit)
 	{
-		while (SDL_PollEvent(&e) != 0)
+		while (SDL_PollEvent(&e) != 0 && !quit)
 		{
 			//User requests quit
 			if (e.type == SDL_QUIT)
@@ -126,7 +129,7 @@ void Game::loop()
 
 			SDL_SetRenderDrawColor(m_renderer, 0xFF, 0xFF, 0xFF, 0xFF);
 			SDL_RenderClear(m_renderer);
-
+			
 			if (!playing)
 			{
 				p_main_menu->render(m_renderer);
@@ -136,6 +139,7 @@ void Game::loop()
 					playing = true;
 					break;
 				case EXIT:
+					printf("exit pressed\n");
 					quit = true;
 					break;
 				}

@@ -13,17 +13,11 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\Enums">
-      <UniqueIdentifier>{4168eb55-e3ce-4fde-b320-57319ceb42a0}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\buttons">
       <UniqueIdentifier>{fec384bf-8d8e-4a83-8148-9a11829eabc3}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\buttons">
       <UniqueIdentifier>{4fa2ba2f-7c11-4b11-8b2d-6d7509df826e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Map">
-      <UniqueIdentifier>{f2b5dbf0-9c7a-4bdd-9eb2-0e0dfb286373}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\maps">
       <UniqueIdentifier>{3824b822-f528-4a71-be98-baf03b5010fb}</UniqueIdentifier>
@@ -36,6 +30,18 @@
     </Filter>
     <Filter Include="Header Files\menus">
       <UniqueIdentifier>{0a57efae-7be7-48a1-81b7-944739f9af2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\data structs">
+      <UniqueIdentifier>{53d23990-7db6-473b-bd14-5b0af260c914}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\utils">
+      <UniqueIdentifier>{c268a07f-1df0-4caf-927b-e3fbf7361b6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\enums">
+      <UniqueIdentifier>{4168eb55-e3ce-4fde-b320-57319ceb42a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\map">
+      <UniqueIdentifier>{f2b5dbf0-9c7a-4bdd-9eb2-0e0dfb286373}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -75,6 +81,9 @@
     <ClCompile Include="Constants.h">
       <Filter>Header Files\utils</Filter>
     </ClCompile>
+    <ClCompile Include="FileHandler.cpp">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Texture.h">
@@ -84,16 +93,16 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ButtonSprite.h">
-      <Filter>Header Files\Enums</Filter>
+      <Filter>Header Files\enums</Filter>
     </ClInclude>
     <ClInclude Include="Button.h">
       <Filter>Header Files\buttons</Filter>
     </ClInclude>
     <ClInclude Include="GameMap.h">
-      <Filter>Header Files\Map</Filter>
+      <Filter>Header Files\map</Filter>
     </ClInclude>
     <ClInclude Include="LevelMap.h">
-      <Filter>Header Files\Map</Filter>
+      <Filter>Header Files\map</Filter>
     </ClInclude>
     <ClInclude Include="SpriteSheet.h">
       <Filter>Header Files</Filter>
@@ -101,14 +110,11 @@
     <ClInclude Include="Square.h">
       <Filter>Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="SpriteSheetInfo.h">
-      <Filter>Header Files\utils</Filter>
-    </ClInclude>
     <ClInclude Include="NewGameButton.h">
       <Filter>Header Files\buttons</Filter>
     </ClInclude>
     <ClInclude Include="ButtonType.h">
-      <Filter>Header Files\Enums</Filter>
+      <Filter>Header Files\enums</Filter>
     </ClInclude>
     <ClInclude Include="Menu.h">
       <Filter>Header Files\menus</Filter>
@@ -120,7 +126,16 @@
       <Filter>Header Files\buttons</Filter>
     </ClInclude>
     <ClInclude Include="GameEvents.h">
-      <Filter>Header Files\Enums</Filter>
+      <Filter>Header Files\enums</Filter>
+    </ClInclude>
+    <ClInclude Include="FileHandler.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteSheetData.h">
+      <Filter>Header Files\data structs</Filter>
+    </ClInclude>
+    <ClInclude Include="TerrainData.h">
+      <Filter>Header Files\data structs</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

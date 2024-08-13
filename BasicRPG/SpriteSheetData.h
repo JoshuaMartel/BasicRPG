@@ -1,7 +1,8 @@
 #pragma once
 #include <memory>
+#include <string>
 
-struct SpriteSheetInfo
+struct SpriteSheetData
 {
 	int rows = 0, cols = 0;
 	int total_tiles = 0;
@@ -19,4 +20,6 @@ struct SpriteSheetInfo
 	// Skip empty sections of the sprite sheet. Are to be used as a matrix, so for example,
 	// skips rows 4-8 at coloumns 6-9
 	std::tuple<int, int> skip_rows = std::make_tuple(0.0, 0.0), skip_cols = std::make_tuple(0.0, 0.0);
+
+	std::string image_path = "";
 };

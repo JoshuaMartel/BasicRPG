@@ -2,28 +2,40 @@
 
 #include <iostream>
 
-GameMap::GameMap(SDL_Renderer* renderer, int width, int height, std::string image_path, int sprite_rows, int sprite_cols)
+GameMap::GameMap(SDL_Renderer* renderer, int width, int height, SpriteSheetData* info)
 {
 	m_width = width;
 	m_height = height;
 
-	m_sprite_rows = sprite_rows;
-	m_sprite_cols = sprite_cols;
+	p_sheet.emplace_back(std::make_unique<SpriteSheet>(info));
 
-	if (!m_map_texture.loadFromFile(renderer, image_path)) {
-		throw ("Error: could not load image file " + image_path);
+	try {
+		p_sheet.back()->loadFromFile(renderer, info->image_path);
 	}
+	catch(std::string e)
+	{
+		throw e;
+	}
+}
 
-	m_sprite_w = float(m_map_texture.getWidth()) / float(m_sprite_rows);
-	m_sprite_h = float(m_map_texture.getHeight()) / float(m_sprite_cols);
+GameMap::GameMap(SDL_Renderer* renderer, int width, int height, std::vector<std::unique_ptr<SpriteSheetData>>* data)
+{
+	m_width = width;
+	m_height = height;
 
-	std::cout << "m_sprite_rows : " << m_sprite_rows << std::endl;
-	std::cout << "m_sprite_cols : " << m_sprite_cols << std::endl;
-	std::cout << "text width : " << m_map_texture.getWidth() << std::endl;
-	std::cout << "text height : " << m_map_texture.getHeight() << std::endl;
-	std::cout << "m_sprite_w : " << m_sprite_w << std::endl;
-	std::cout << "m_sprite_h : " << m_sprite_h << std::endl;
+	//p_sheet = std::make_unique<SpriteSheet>(data);
 
+	try {
+		for (const std::unique_ptr<SpriteSheetData>& d : *data)
+		{
+			p_sheet.emplace_back(std::make_unique<SpriteSheet>(&(*d)));
+			p_sheet.back()->loadFromFile(renderer, d->image_path);
+		}
+	}
+	catch (std::string e)
+	{
+		throw e;
+	}
 }
 
 void GameMap::render(SDL_Renderer* renderer)

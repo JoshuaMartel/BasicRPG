@@ -8,6 +8,8 @@
 class Button
 {
 public:
+	int m_width, m_height;
+
 	Button();
 
 	// initislise class and return success or failure to initialise
@@ -27,7 +29,7 @@ public:
 	ButtonType type();
 
 protected:
-	int m_width, m_height;
+	
 
 	// Top left position
 	SDL_Point m_position;

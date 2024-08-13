@@ -7,9 +7,5 @@ class ExitButton :
 {
 public:
     ExitButton();
-
-    ButtonType type();
-private:
-    ButtonType m_type;
 };
 

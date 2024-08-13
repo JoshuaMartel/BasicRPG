@@ -13,7 +13,7 @@ SpriteSheet::SpriteSheet(int rows, int cols, int tile_set_w, int tile_set_h) :
 	m_info.tile_set_h = tile_set_h;
 }
 
-SpriteSheet::SpriteSheet(SpriteSheetInfo* info) : Texture()
+SpriteSheet::SpriteSheet(SpriteSheetData* info) : Texture()
 {
 	m_info.rows = info->rows;
 	m_info.cols = info->cols;
@@ -53,7 +53,7 @@ void SpriteSheet::loadFromFile(SDL_Renderer* renderer, std::string image_path)
 			int cols = m_info.block_col_length;
 			int rows = m_info.block_row_length;
 
-			std::cout << std::endl;
+			/*std::cout << std::endl;
 			std::cout << "sheet width: " << m_width << std::endl;
 			std::cout << "sheet height : " << m_height << std::endl;
 			std::cout << "tile width: " << m_info.tile_width << std::endl;
@@ -63,7 +63,7 @@ void SpriteSheet::loadFromFile(SDL_Renderer* renderer, std::string image_path)
 			std::cout << "i_max : block col w : " << m_info.block_col_length << std::endl;
 			std::cout << "j_max : block row h : " << m_info.block_row_length << std::endl;
 			std::cout << "block_width_max : " << horizontal_blocks << std::endl;
-			std::cout << "block_height_max : " << vertical_blocks << std::endl;
+			std::cout << "block_height_max : " << vertical_blocks << std::endl;*/
 			
 			for (int r = 0; r < vertical_blocks; r++)
 			{
@@ -82,21 +82,6 @@ void SpriteSheet::loadFromFile(SDL_Renderer* renderer, std::string image_path)
 					}
 				}
 			}
-			
-			/*
-			for (int j = 0; j < rows; j++)
-			{
-				for (int i = 0; i < cols; i++)
-				{
-					m_tiles.emplace_back(std::make_unique<SDL_Rect>());
-					m_tiles.back()->w = m_info.tile_width;
-					m_tiles.back()->h = m_info.tile_height;
-					m_tiles.back()->x = m_info.tile_width * i ;
-					m_tiles.back()->y = m_info.tile_height * j + (2 * rows * m_info.tile_height);
-				}
-			}
-			*/
-
 		}
 		else
 		{ // There are no blocks so we captures tiles from left to right and top to bottom
@@ -120,47 +105,16 @@ void SpriteSheet::loadFromFile(SDL_Renderer* renderer, std::string image_path)
 
 void SpriteSheet::render(SDL_Renderer* renderer)
 {
-	//Set rendering space and render to screen
-	//SDL_Rect render_quad = { 0, 0, m_info.tile_width * 1.5, m_info.tile_height * 1.5 };
-	//SDL_Rect clip = { m_tiles.front()->x, m_tiles.front()->y, m_tiles.front()->w, m_tiles.front()->h };
-
-	//SDL_RenderCopy(renderer, m_texture, &clip, &render_quad);
-
-	
-
-	//////Set clip rendering dimensions
-	////if (clip != NULL)
-	////{
-	////	render_quad.w = clip->w;
-	////	render_quad.h = clip->h;
-	////}
-	//int i = 0, j = 0;
-	//for (std::vector<std::unique_ptr<SDL_Rect>>::iterator iter = m_tiles.begin(); iter < m_tiles.end(); iter++)
-	//{
-	//	// The sprite sheet contains m_dims.w by m_dims.h tiles, but we store it in a linear vector
-	//	if (i% m_dims.w == 0) i = 0;
-	//	if (j % m_dims.h == 0) j = 0;
-
-	//	render_quad = { 0.0, 0.0, m_sprite_dims.w * 1.5, m_sprite_dims.h * 1.5 };
-	//	render_quad.x =
-	//	clip = { m_tiles.back()->x, m_tiles.back()->y, m_tiles.back()->w, m_tiles.back()->h };
-	//}
 	SDL_Rect render_quad = { 0.0,0.0,0.0,0.0 };
-	SDL_Rect clip = { 0.0,0.0,0.0,0.0 };
 	int i = 0;
 	int j = 0;
+	//Set rendering space and render to screen
 	for (std::vector<std::unique_ptr<SDL_Rect>>::iterator iter = m_tiles.begin(); iter < m_tiles.end(); iter++)
 	{
 		render_quad.x = i * m_info.tile_width;
 		render_quad.y = j * m_info.tile_height;
 		render_quad.w = m_info.tile_width;
 		render_quad.h = m_info.tile_height;
-
-		// Because we use unique_ptrs we cannot pass them to SDL_RenderCopy
-		clip.x = (*iter)->x;
-		clip.y = (*iter)->y;
-		clip.w = (*iter)->w;
-		clip.h = (*iter)->h;
 
 		SDL_RenderCopy(renderer, m_texture, &(*(*iter)), &render_quad);
 		//SDL_RenderCopy(renderer, m_texture, &clip, &render_quad);
