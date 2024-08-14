@@ -29,6 +29,8 @@ public:
 
 	void render(SDL_Renderer* renderer);
 
+	void render(SDL_Renderer* renderer, std::vector<std::vector<int>>* tiles);
+
 private:
 	SpriteSheetData m_info;
 

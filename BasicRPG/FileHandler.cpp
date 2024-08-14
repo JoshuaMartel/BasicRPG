@@ -19,8 +19,10 @@ void file::saveMap(TerrainData* info)
 		file << info->map.size() << std::endl;
 		for (auto&& t : info->map)
 		{
+			file << t->sheet_name << std::endl;
 			file << "$ dimensions" << std::endl;
 			file <<t->rows << ", " << t->cols << std::endl;
+			
 			for (std::vector<int> row : t->layers) {
 				for (int tile : row) {
 					file << tile << ", ";
@@ -78,6 +80,8 @@ void file::loadMap(std::string file_path, TerrainData* data)
 			if (iter == input.end()) break;
 			data->map.emplace_back(std::make_unique<Terrain>());
 
+			data->map.back()->sheet_name = *iter;
+			iter++;
 			data->map.back()->rows = std::stoi(iter->substr(0, pos));
 			data->map.back()->cols = std::stoi(iter->substr(pos + delimeter.length(), std::string::npos));
 			

@@ -18,6 +18,7 @@ int main(int argc, char* args[])
     try {
         TerrainData mapTest;
         mapTest.name = "Test_Map.txt";
+        
         mapTest.map.emplace_back(std::make_unique<Terrain>());
         mapTest.map.back()->layers = 
         { 
@@ -25,6 +26,7 @@ int main(int argc, char* args[])
             {1,0,0,0,1},
             {1,1,0,0,0,}
         };
+        mapTest.map.back()->sheet_name = "Floor.png";
         mapTest.map.back()->rows = mapTest.map.back()->layers.size();
         mapTest.map.back()->cols = mapTest.map.back()->layers.front().size();
 
@@ -56,11 +58,17 @@ int main(int argc, char* args[])
     // ****
     
     Game game(SCREEN_WIDTH, SCREEN_HEIGHT);
-
-    game.init();
-    game.loop();
-    game.close();
-
+    try {
+        game.init();
+        game.loop();
+        game.close();
+    }
+    catch (std::string e)
+    {
+        printf(e.c_str());
+        return 1;
+    }
+    
     return 0;
 }
 

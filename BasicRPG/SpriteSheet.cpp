@@ -127,6 +127,30 @@ void SpriteSheet::render(SDL_Renderer* renderer)
 	}
 }
 
+void SpriteSheet::render(SDL_Renderer* renderer, std::vector<std::vector<int>> *tiles)
+{
+	SDL_Rect quad = { 0.0,0.0,0.0,0.0 };
+	int i = 0, j = 0;
+
+	//Render to screen
+	for (auto& row : *tiles)
+	{
+		for (auto tile : row)
+		{
+			quad.x = i * m_info.tile_width;
+			quad.y = j * m_info.tile_height;
+			quad.w = m_info.tile_width;
+			quad.h = m_info.tile_height;
+
+			SDL_RenderCopy(renderer, m_texture, &(*m_tiles[tile]), &quad);
+			
+			i++;
+		}
+		i = 0;
+		j++;
+	}
+}
+
 int SpriteSheet::getNumRows() {
 	return m_info.rows;
 }

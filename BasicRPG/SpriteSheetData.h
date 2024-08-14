@@ -22,4 +22,5 @@ struct SpriteSheetData
 	std::tuple<int, int> skip_rows = std::make_tuple(0.0, 0.0), skip_cols = std::make_tuple(0.0, 0.0);
 
 	std::string image_path = "";
+	std::string file_name = "";
 };
