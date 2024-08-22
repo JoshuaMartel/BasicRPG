@@ -9,6 +9,7 @@
 #include "MainMenu.h"
 #include "Constants.h"
 #include "GameMap.h"
+#include "FileHandler.h"
 
 class Game
 {
@@ -28,6 +29,8 @@ private:
 	SDL_Renderer* m_renderer;
 
 	std::unique_ptr<MainMenu> p_main_menu;
+
+	std::unique_ptr<GameMap> p_cur_map;
 
 	int m_window_width;
 	int m_window_height;

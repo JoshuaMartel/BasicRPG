@@ -30,6 +30,9 @@ SpriteSheet::SpriteSheet(SpriteSheetData* info) : Texture()
 	// This is likely some default value and will be calculated after sheet is loaded
 	m_info.tile_width = info->tile_width;
 	m_info.tile_height = info->tile_height;
+
+	m_info.file_name = info->file_name;
+	m_info.image_path = info->image_path;
 }
 
 void SpriteSheet::loadFromFile(SDL_Renderer* renderer, std::string image_path)

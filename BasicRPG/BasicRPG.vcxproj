@@ -135,6 +135,7 @@
   <ItemGroup>
     <ClCompile Include="BasicRPG.cpp" />
     <ClCompile Include="Button.cpp" />
+    <ClCompile Include="Character.cpp" />
     <ClCompile Include="Constants.h" />
     <ClCompile Include="ExitButton.cpp" />
     <ClCompile Include="FileHandler.cpp" />
@@ -151,6 +152,7 @@
     <ClInclude Include="Button.h" />
     <ClInclude Include="ButtonSprite.h" />
     <ClInclude Include="ButtonType.h" />
+    <ClInclude Include="Character.h" />
     <ClInclude Include="ExitButton.h" />
     <ClInclude Include="FileHandler.h" />
     <ClInclude Include="GameEvents.h" />

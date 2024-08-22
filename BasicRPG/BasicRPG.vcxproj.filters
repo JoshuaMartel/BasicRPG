@@ -43,6 +43,12 @@
     <Filter Include="Header Files\map">
       <UniqueIdentifier>{f2b5dbf0-9c7a-4bdd-9eb2-0e0dfb286373}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\characters">
+      <UniqueIdentifier>{8069e233-c2b1-48c2-9f88-cd04d13af99f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\character">
+      <UniqueIdentifier>{a9ca6ad7-911e-4279-bfff-64a5c5826b2f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BasicRPG.cpp">
@@ -83,6 +89,9 @@
     </ClCompile>
     <ClCompile Include="FileHandler.cpp">
       <Filter>Source Files\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Character.cpp">
+      <Filter>Source Files\character</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -136,6 +145,9 @@
     </ClInclude>
     <ClInclude Include="TerrainData.h">
       <Filter>Header Files\data structs</Filter>
+    </ClInclude>
+    <ClInclude Include="Character.h">
+      <Filter>Header Files\characters</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

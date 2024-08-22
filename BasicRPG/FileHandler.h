@@ -12,4 +12,5 @@ namespace file {
 
 	void loadMap(std::string file_path, TerrainData* data);
 
+	void loadMap(std::string file_path,std::unique_ptr<TerrainData>* data);
 }

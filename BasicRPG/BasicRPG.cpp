@@ -13,50 +13,6 @@ const int SCREEN_HEIGHT = 600;
 
 int main(int argc, char* args[])
 {
-    // Testing file handler. Remove when done.
-    // ****
-    try {
-        TerrainData mapTest;
-        mapTest.name = "Test_Map.txt";
-        
-        mapTest.map.emplace_back(std::make_unique<Terrain>());
-        mapTest.map.back()->layers = 
-        { 
-            {1,1,1,1,1},
-            {1,0,0,0,1},
-            {1,1,0,0,0,}
-        };
-        mapTest.map.back()->sheet_name = "Floor.png";
-        mapTest.map.back()->rows = mapTest.map.back()->layers.size();
-        mapTest.map.back()->cols = mapTest.map.back()->layers.front().size();
-
-        /*mapTest.map.emplace_back(std::make_unique<Terrain>());
-        mapTest.map.back()->layers =
-        {
-            {2,1,1,1,2},
-            {1,0,0,0,1},
-            {1,0,0,0,1,},
-            {2,1,1,1,2}
-        };
-        mapTest.map.back()->rows = mapTest.map.back()->layers.size();
-        mapTest.map.back()->cols = mapTest.map.back()->layers.front().size();*/
-        file::saveMap(&mapTest);
-
-        //Test MapInfo::print()
-        // ****
-        mapTest.print();
-        // ****
-    }
-    catch (std::string e)
-    {
-        printf(e.c_str());
-        return -1;
-    }
-    TerrainData loadTest;
-    file::loadMap("maps/Test_Map.txt", &loadTest);
-    loadTest.print();
-    // ****
-    
     Game game(SCREEN_WIDTH, SCREEN_HEIGHT);
     try {
         game.init();
