@@ -93,6 +93,9 @@
     <ClCompile Include="Character.cpp">
       <Filter>Source Files\character</Filter>
     </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\character</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Texture.h">
@@ -149,12 +152,21 @@
     <ClInclude Include="Character.h">
       <Filter>Header Files\characters</Filter>
     </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files\characters</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Wall.png">
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="Resources\Floor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Player1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resources\Player0.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

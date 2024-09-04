@@ -10,6 +10,7 @@
 #include "Constants.h"
 #include "GameMap.h"
 #include "FileHandler.h"
+#include "Player.h"
 
 class Game
 {
@@ -31,6 +32,8 @@ private:
 	std::unique_ptr<MainMenu> p_main_menu;
 
 	std::unique_ptr<GameMap> p_cur_map;
+
+	std::unique_ptr<Player> p_player;
 
 	int m_window_width;
 	int m_window_height;

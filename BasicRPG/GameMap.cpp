@@ -8,7 +8,7 @@ GameMap::GameMap(SDL_Renderer* renderer, int width, int height, SpriteSheetData*
 	p_sheet[info->file_name] = (std::make_unique<SpriteSheet>(info));
 
 	try {
-		p_sheet[info->file_name]->loadFromFile(renderer, info->image_path);
+		p_sheet[info->file_name]->loadFromFile(renderer);
 	}
 	catch(std::string e)
 	{
@@ -29,7 +29,7 @@ GameMap::GameMap(SDL_Renderer* renderer, int width, int height,
 				throw "d is NULL from sheet_data\n";
 			//printf("file name is %s\n", d->file_name.c_str());
 			p_sheet[d->file_name] = (std::make_unique<SpriteSheet>(&(*d)));
-			p_sheet[d->file_name]->loadFromFile(renderer, d->image_path);
+			p_sheet[d->file_name]->loadFromFile(renderer);
 		}
 		for (auto&& d : *t_data)
 		{
@@ -64,7 +64,7 @@ void GameMap::render(SDL_Renderer* renderer)
 		{
 			if (terrain == NULL)
 				throw "terrain struct is NULL\n";
-			p_sheet[terrain->sheet_name]->render(renderer, &terrain->layers);
+			p_sheet[terrain->sheet_name]->render(renderer, &terrain->layers, 1.5);
 		}
 	}
 }

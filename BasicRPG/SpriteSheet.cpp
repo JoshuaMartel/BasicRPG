@@ -35,11 +35,11 @@ SpriteSheet::SpriteSheet(SpriteSheetData* info) : Texture()
 	m_info.image_path = info->image_path;
 }
 
-void SpriteSheet::loadFromFile(SDL_Renderer* renderer, std::string image_path)
+void SpriteSheet::loadFromFile(SDL_Renderer* renderer)
 {
-	if (!Texture::loadFromFile(renderer, image_path))
+	if (!Texture::loadFromFile(renderer, m_info.image_path))
 	{
-		throw "SpriteSheet::loadFromFile ---> Error: Could not load image " + image_path + "\n";
+		throw "SpriteSheet::loadFromFile ---> Error: Could not load image " + m_info.image_path + "\n";
 	}
 	else
 	{
@@ -106,6 +106,7 @@ void SpriteSheet::loadFromFile(SDL_Renderer* renderer, std::string image_path)
 	}
 }
 
+// renders all tiles in order
 void SpriteSheet::render(SDL_Renderer* renderer)
 {
 	SDL_Rect render_quad = { 0.0,0.0,0.0,0.0 };
@@ -130,7 +131,15 @@ void SpriteSheet::render(SDL_Renderer* renderer)
 	}
 }
 
-void SpriteSheet::render(SDL_Renderer* renderer, std::vector<std::vector<int>> *tiles)
+// Renders a single tile at position (x, y)
+void SpriteSheet::render(SDL_Renderer* renderer, float x, float y, int pos, float scale)
+{
+	SDL_Rect render_quad = { x, y, m_info.tile_width * scale, m_info.tile_height * scale };
+
+	SDL_RenderCopy(renderer, m_texture, &(*m_tiles[pos]), &render_quad);
+}
+
+void SpriteSheet::render(SDL_Renderer* renderer, std::vector<std::vector<int>> *tiles, float scale)
 {
 	SDL_Rect quad = { 0.0,0.0,0.0,0.0 };
 	int i = 0, j = 0;
@@ -140,12 +149,12 @@ void SpriteSheet::render(SDL_Renderer* renderer, std::vector<std::vector<int>> *
 	{
 		for (auto tile : row)
 		{
-			quad.x = i * m_info.tile_width;
-			quad.y = j * m_info.tile_height;
-			quad.w = m_info.tile_width;
-			quad.h = m_info.tile_height;
+			quad.x = i * m_info.tile_width * scale;
+			quad.y = j * m_info.tile_height * scale;
+			quad.w = m_info.tile_width * scale;
+			quad.h = m_info.tile_height * scale;
 
-			SDL_RenderCopy(renderer, m_texture, &(*m_tiles[tile]), &quad);
+			SDL_RenderCopy(renderer, m_texture, &(*m_tiles[tile-1]), &quad);
 			
 			i++;
 		}

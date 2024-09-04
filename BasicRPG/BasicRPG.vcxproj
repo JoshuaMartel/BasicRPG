@@ -145,6 +145,7 @@
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="NewGameButton.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="SpriteSheet.cpp" />
     <ClCompile Include="Texture.cpp" />
   </ItemGroup>
@@ -160,6 +161,7 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="LevelMap.h" />
     <ClInclude Include="MainMenu.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="TerrainData.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="NewGameButton.h" />
@@ -170,6 +172,8 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Floor.png" />
+    <Image Include="Resources\Player0.png" />
+    <Image Include="Resources\Player1.png" />
     <Image Include="Resources\Wall.png" />
   </ItemGroup>
   <ItemGroup>

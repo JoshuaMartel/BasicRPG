@@ -13,7 +13,7 @@ public:
 
 	SpriteSheet(SpriteSheetData* info);
 
-	void loadFromFile(SDL_Renderer* renderer, std::string);
+	void loadFromFile(SDL_Renderer* renderer);
 
 	int getNumRows();
 
@@ -29,7 +29,9 @@ public:
 
 	void render(SDL_Renderer* renderer);
 
-	void render(SDL_Renderer* renderer, std::vector<std::vector<int>>* tiles);
+	void render(SDL_Renderer* renderer, float x, float y, int pos, float scale = 1.0);
+
+	void render(SDL_Renderer* renderer, std::vector<std::vector<int>>* tiles, float scale = 1.0);
 
 private:
 	SpriteSheetData m_info;

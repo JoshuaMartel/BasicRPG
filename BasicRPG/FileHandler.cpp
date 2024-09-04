@@ -66,16 +66,13 @@ void file::loadMap(std::string file_path, TerrainData* data)
 		if(input.size() == 0)
 			throw "Error: file " + file_path + " is empty";
 		auto iter = input.begin();
-		//printf("Printing lines...\n");
-		//printf(iter->c_str());
-		//printf("\n");
+	
 		int num_layers = std::stoi(*iter++);
 
 		pos = iter->find(delimeter);
 		for (int i = 0; i < num_layers; i++)
 		{
-			//printf(iter->c_str());
-			//printf("\n");
+
 			
 			if (iter == input.end()) break;
 			data->map.emplace_back(std::make_unique<Terrain>());
@@ -89,8 +86,6 @@ void file::loadMap(std::string file_path, TerrainData* data)
 			for (int j = 0; j < data->map.back()->rows; j++)
 			{
 				iter++;
-				//printf(r.c_str());
-				//printf("\n");
 				std::vector<int> vec;
 				row = *iter;
 

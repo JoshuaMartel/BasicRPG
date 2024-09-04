@@ -90,6 +90,20 @@ void Game::loop()
 	terrain.emplace_back(std::make_unique<TerrainData>());
 	file::loadMap("maps/Level_1.txt", &terrain.back());
 	// ****
+	SpriteSheetData info3 = { 15, 8, 0, 0.0, 0.0, 0.0, 0.0, 0, 0 ,
+		std::make_tuple(0.0, 0.0), std::make_tuple(0.0, 0.0), "resources/Player0.png", "Player0.png" };
+	SpriteSheet char_sheet_0(&info3);
+
+	SpriteSheetData info4 = { 15, 8, 0, 0.0, 0.0, 0.0, 0.0, 0, 0 ,
+		std::make_tuple(0.0, 0.0), std::make_tuple(0.0, 0.0), "resources/Player1.png", "Player1.png" };
+
+	SpriteSheet char_sheet_1(&info4);
+
+	std::vector<int> player_sheet_positions = {26,26};
+	Player player(100, m_window_width / 2, m_window_height / 2, "Player 1", player_sheet_positions);
+
+	char_sheet_0.loadFromFile(m_renderer);
+	char_sheet_1.loadFromFile(m_renderer);
 
 	SDL_Event e;
 
@@ -105,11 +119,13 @@ void Game::loop()
 				quit = true;
 			}
 
-			SDL_SetRenderDrawColor(m_renderer, 0xFF, 0xFF, 0xFF, 0xFF);
-			SDL_RenderClear(m_renderer);
-			
+			//SDL_SetRenderDrawColor(m_renderer, 0xFF, 0xFF, 0xFF, 0xFF);
+			//SDL_SetRenderDrawColor(m_renderer, 0, 0, 0, 0);
+				
 			if (!playing)
 			{
+				SDL_SetRenderDrawColor(m_renderer, 0xFF, 0xFF, 0xFF, 0xFF);
+				SDL_RenderClear(m_renderer);
 				p_main_menu->render(m_renderer);
 
 				switch (p_main_menu->handelEvent(&e)) {
@@ -124,8 +140,15 @@ void Game::loop()
 			}
 			else
 			{
+				SDL_SetRenderDrawColor(m_renderer, 0, 0, 0, 0);
+				SDL_RenderClear(m_renderer);
 				//sheet.render(m_renderer);
 				p_cur_map->render(m_renderer);
+
+				player.handleKeyEvent(e);
+
+				char_sheet_0.render(m_renderer, player.m_x, player.m_y, player.m_sheet_positions[0]);
+				//char_sheet_1.render(m_renderer);
 			}
 
 			SDL_RenderPresent(m_renderer);
