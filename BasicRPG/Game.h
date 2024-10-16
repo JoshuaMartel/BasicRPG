@@ -2,6 +2,9 @@
 
 #include <SDL.h>
 #include <SDL_image.h>
+#include <gl/glew.h>
+#include <gl/GL.h>
+#include <SDL_opengl.h>
 #include <stdio.h>
 #include <memory>
 #include <exception>
@@ -11,6 +14,8 @@
 #include "GameMap.h"
 #include "FileHandler.h"
 #include "Player.h"
+#include "Debug.h"
+#include "call_back.h"
 
 class Game
 {
@@ -21,13 +26,29 @@ public:
 
 	bool init();
 
+	bool initSDL();
+
+	bool initGL();
+
 	void loop();
 
 	void close();
 
+	void handleEntities(SDL_Event *e);
+
+	void printProgramLog(GLuint program);
+
+	void printShaderLog(GLuint shader);
+
 private:
 	SDL_Window* m_window;
 	SDL_Renderer* m_renderer;
+
+	//OpenGL context
+	SDL_GLContext m_context;
+
+	GLuint m_programID = 0;
+	GLint m_vertexPos2DLocation = -1;
 
 	std::unique_ptr<MainMenu> p_main_menu;
 

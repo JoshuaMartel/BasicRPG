@@ -7,13 +7,17 @@ Character::Character()
 	m_name = "Character";
 }
 
-Character::Character(int health, float x, float y, std::string name, std::vector<int> sheet_positions)
+Character::Character(int health, float x, float y, std::string name, std::vector<int> sheet_positions, SDL_Rect rect)
 {
 	m_health = health;
 	m_x = x;
 	m_y = y;
 	m_name = name;
 	m_sheet_positions = sheet_positions;
+	dimensions.h = rect.h;
+	dimensions.w = rect.w;
+	dimensions.x = rect.x;
+	dimensions.y = rect.y;
 }
 
 /*

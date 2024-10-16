@@ -28,8 +28,14 @@ struct Terrain
 
 struct TerrainData {
 	std::string name;
+
+	int rows = 0, cols = 0;
 	
 	std::vector<std::unique_ptr<Terrain>> map;
+
+	std::vector<std::vector<int>> wall_grid;
+
+	int map_size = 0;
 	
 	void print()
 	{
@@ -37,5 +43,12 @@ struct TerrainData {
 		for (int i = 0; i < map.size(); i++) {
 			map[i]->print();
 		}
+		printf("Wall grid: \n");
+		for (auto row : wall_grid) {
+			for (auto col : row) {
+				printf("%d, ", col);
+			}
+			printf("\n");
+		}		
 	}
 };

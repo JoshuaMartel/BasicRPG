@@ -90,7 +90,8 @@ void SpriteSheet::loadFromFile(SDL_Renderer* renderer)
 		{ // There are no blocks so we captures tiles from left to right and top to bottom
 			int i_max = m_info.cols;
 			int j_max = m_info.rows;
-
+			//std::cout << "cols : " << m_info.cols << std::endl;
+			//std::cout << "rows : " << m_info.rows << std::endl;
 			for (int j = 0; j < j_max; j++)
 			{
 				for (int i = 0; i < i_max; i++)
@@ -103,6 +104,8 @@ void SpriteSheet::loadFromFile(SDL_Renderer* renderer)
 				}
 			}
 		}
+		//std::cout << m_info.image_path << std::endl;
+		//std::cout << m_tiles.size() << std::endl;
 	}
 }
 

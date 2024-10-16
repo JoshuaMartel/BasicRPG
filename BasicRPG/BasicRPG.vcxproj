@@ -71,8 +71,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Users\jophm\source\repos\C++\Libraries\Combined SDL2\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\jophm\source\repos\C++\Libraries\Combined SDL2\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\jophm\source\repos\C++\Libraries\Combined SDL2\include;C:\Users\jophm\source\repos\C++\Libraries\glew-2.1.0\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\jophm\source\repos\C++\Libraries\Combined SDL2\lib\x64;C:\Users\jophm\source\repos\C++\Libraries\glew-2.1.0\lib\Release\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -113,7 +113,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;opengl32.lib;glew32.lib;glu32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -135,33 +135,43 @@
   <ItemGroup>
     <ClCompile Include="BasicRPG.cpp" />
     <ClCompile Include="Button.cpp" />
+    <ClCompile Include="call_back.cpp" />
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="Constants.h" />
+    <ClCompile Include="Debug.cpp" />
     <ClCompile Include="ExitButton.cpp" />
     <ClCompile Include="FileHandler.cpp" />
     <ClCompile Include="GameMap.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="KeyboardHandler.cpp" />
     <ClCompile Include="LevelMap.cpp" />
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="NewGameButton.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="ShaderProgram.cpp" />
     <ClCompile Include="SpriteSheet.cpp" />
     <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="Walls.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Button.h" />
     <ClInclude Include="ButtonSprite.h" />
     <ClInclude Include="ButtonType.h" />
+    <ClInclude Include="call_back.h" />
     <ClInclude Include="Character.h" />
+    <ClInclude Include="Debug.h" />
     <ClInclude Include="ExitButton.h" />
     <ClInclude Include="FileHandler.h" />
     <ClInclude Include="GameEvents.h" />
     <ClInclude Include="GameMap.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="KeyboardCodes.h" />
+    <ClInclude Include="KeyboardHandler.h" />
     <ClInclude Include="LevelMap.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="ShaderProgram.h" />
     <ClInclude Include="TerrainData.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="NewGameButton.h" />
@@ -169,6 +179,7 @@
     <ClInclude Include="SpriteSheetData.h" />
     <ClInclude Include="Square.h" />
     <ClInclude Include="Texture.h" />
+    <ClInclude Include="Walls.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Floor.png" />

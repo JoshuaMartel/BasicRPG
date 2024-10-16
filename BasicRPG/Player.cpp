@@ -2,22 +2,22 @@
 
 Player::Player() : Character(){}
 
-Player::Player(int health, float x, float y, std::string name, std::vector<int> sheet_positions) : Character(health, x, y, name, sheet_positions){}
+Player::Player(int health, float x, float y, std::string name, std::vector<int> sheet_positions, SDL_Rect rec) : Character(health, x, y, name, sheet_positions, rec){}
 
-void Player::handleKeyEvent(SDL_Event e)
+void Player::handleKeyEvent(SDL_Event *e)
 {
-	switch (e.key.keysym.sym) {
+	switch (e->key.keysym.sym) {
 	case SDLK_w:
-		updatePosition(m_x, m_y - 10.0f);
+		updatePosition(m_x, m_y - 5.0f);
 		break;
 	case SDLK_s:
-		updatePosition(m_x, m_y + 10.0f);
+		updatePosition(m_x, m_y + 5.0f);
 		break;
 	case SDLK_a:
-		updatePosition(m_x - 10.0f, m_y);
+		updatePosition(m_x - 5.0f, m_y);
 		break;
 	case SDLK_d:
-		updatePosition(m_x + 10.0f, m_y);		
+		updatePosition(m_x + 5.0f, m_y);		
 		break;
 	}
 }

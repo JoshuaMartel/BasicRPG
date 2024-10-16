@@ -1,6 +1,5 @@
 #pragma once
 #include "Character.h"
-#include "SpriteSheet.h"
 
 class Player :
     public Character
@@ -8,9 +7,11 @@ class Player :
 public:
     Player();
 
-    Player(int health, float x, float y, std::string name, std::vector<int> sheet_positions);
+    Player(int health, float x, float y, std::string name, std::vector<int> sheet_positions, SDL_Rect rect);
 
-    void handleKeyEvent(SDL_Event e);
+    //Player(int health, float x, float y, std::string name, std::vector<int> sheet_positions);
+
+    void handleKeyEvent(SDL_Event *e);
 
     // void addTextures(std::vector<SpriteSheetData>* sheets, SDL_Renderer* renderer);
 
